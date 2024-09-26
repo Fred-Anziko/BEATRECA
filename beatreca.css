@@ -6,7 +6,7 @@ body {
   background-color: gray;
 }
 .responsive-image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -68,7 +68,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .image-code, .qr-code {
-    width: 50%;
+    width: 100%;
     height: auto;
   }
 }
