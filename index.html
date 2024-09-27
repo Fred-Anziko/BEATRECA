@@ -107,6 +107,12 @@ auth.onAuthStateChanged((user) => {
     // ...
   }
 });
+// ... (Firebase initialization)
+
+// Check if user is signed in
+auth.onAuthStateChanged((user) => {
+  if (user) {
+
 
 </script>
 </body>
