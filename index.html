@@ -13,7 +13,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </head>
-</head>
 <body>
   <img src="391C9DA9-33E0-4C81-8100-CE6E3FB39F52.png" alt="icon" class="responsive-image">
 
@@ -39,6 +38,8 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -58,121 +59,6 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = firebase.auth();
-  // Sign Up
-auth.createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    // Handle errors
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ...
-  });
-
-// Sign In
-auth.signInWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    // Handle errors
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ...
-  });
-// Google Sign-In
-const provider = new firebase.auth.GoogleAuthProvider();
-auth.signInWithPopup(provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = result.credential;
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // ...
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ...
-  });
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-// ... (Firebase initialization)
-
-// Check if user is signed in
-auth.onAuthStateChanged((user) => {
-  if (user) {
-
-
-</script>
-</body>
-</html>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEATRECA: OWN A TREE WITHOUT PHYSICALLY HAVING TO PLANT, BECAUSE  BEATRECA TAKES CARE OF THAT</title>
-  <link rel="stylesheet" href="beatreca.css">
-</head>
-<body>
-  <img src="391C9DA9-33E0-4C81-8100-CE6E3FB39F52.png" alt="icon" class="responsive-image">
-
-  <div class="container">
-    <h1>BEATRECA</h1>
-    <br>
-    <h2>With $5 per tree, you can have a green investment that appreciates in value</h2>
-    <br>
-  <br>
-    <div class="contact-info">
-      <br>
-      <h2>Contact Us</h2>
-      <ul>
-        <li>+256742453863</li>
-      </ul>
-      <h2>OR</h2>
-     <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSd5jrglgQnQDUhXLB0O-Ne3Oi9fiM4ciy3hBCF5Vb6s58A0oA/viewform?usp=sf_link" target="_blank">Register</a></h3>
-      <br>
-      <br>
-  </div>
-  <h2><p>&copy; BEATRECA</h2>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDp6eAO5W0LzhVqWGrPkANMAvEcJh088-8",
-    authDomain: "beatreca-b98a4.firebaseapp.com",
-    projectId: "beatreca-b98a4",
-    storageBucket: "beatreca-b98a4.appspot.com",
-    messagingSenderId: "404104762311",
-    appId: "1:404104762311:web:e579b48a8f7089725dffe2",
-    measurementId: "G-X6QGH2MTN4"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
   // Sign Up
 auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
