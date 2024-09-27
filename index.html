@@ -30,7 +30,7 @@
     
     <div class="contact-info">
       <br>
-      <h2>Contact Us</h2>
+      <h2>Contacts</h2>
       <ul>
         <li>+256742453863</li>
       </ul>
@@ -63,42 +63,29 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = firebase.auth();
-  // Google Sign-In
+// Google Sign-In (Redirect)
 const signInWithGoogleButton = document.getElementById('signInWithGoogle');
 const googleProvider = new GoogleAuthProvider();
 signInWithGoogleButton.addEventListener('click', () => {
-  signInWithPopup(auth, googleProvider)
+  signInWithRedirect(auth, googleProvider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      console.log("User signed in with Google:", user);
-      // ... (Do something with the signed-in user)
+      // ... (handle successful sign-in)
     })
     .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error("Error signing in with Google:", errorCode, errorMessage);
+      // ... (handle errors)
     });
 });
 
-// Apple Sign-In
+// Apple Sign-In (Redirect)
 const signInWithAppleButton = document.getElementById('signInWithApple');
 const appleProvider = new AppleAuthProvider();
 signInWithAppleButton.addEventListener('click', () => {
-  signInWithPopup(auth, appleProvider)
+  signInWithRedirect(auth, appleProvider)
     .then((result) => {
-      const credential = AppleAuthProvider.credentialFromResult(result);
-      const user = result.user;
-      console.log("User signed in with Apple:", user);
-      // ... (Do something with the signed-in user)
+      // ... (handle successful sign-in)
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error("Error signing in with Apple:", errorCode, errorMessage);
+      // ... (handle errors)
     });
 });
 auth.onAuthStateChanged((user) => {
