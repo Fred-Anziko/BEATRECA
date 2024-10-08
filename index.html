@@ -24,6 +24,7 @@
   <br>
 <div id="auth-container" class="auth">
   <h1>Login</h1>
+  <button id="signInWithEmail">Email</button>
   <button id="signInWithGoogle">Google</button>
   <button id="signInWithApple">Apple</button>
 </div>
@@ -63,6 +64,25 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = firebase.auth();
+//sign in with email
+const signInWithEmailButton = document.getElementById('signInWithEmail');
+signInWithEmailButton.addEventListener('click', () => {
+  const email = document.getElementById('emailInput').value; // Replace with your email input element ID
+  const password = document.getElementById('passwordInput').value; // Replace with your password input element ID
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // User signed in successfully
+      const user = userCredential.user;
+      console.log("User signed in with email:", user);
+      // ... (Do something with the signed-in user)
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error signing in with email:", errorCode, errorMessage);
+    });
+});
 // Google Sign-In (Redirect)
 const signInWithGoogleButton = document.getElementById('signInWithGoogle');
 const googleProvider = new GoogleAuthProvider();
